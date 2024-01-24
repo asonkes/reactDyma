@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 export default function EditTodo({todo, saveTodo, cancelTodo}) {
 
@@ -27,16 +28,9 @@ export default function EditTodo({todo, saveTodo, cancelTodo}) {
             className="mt-50 mb-20 p-20" 
             />
 
-            <button 
-            onClick={handleClickSaveTodo} 
-            className="btn btn-primary m-20">Sauvegarder
-            </button>
+            <Button onClick={handleClickSaveTodo} text="Sauvegarder"/>
 
-             <button 
-            onClick={cancelTodo} 
-            className="btn btn-primary m-20">Annuler
-            </button>
-
+            <Button onClick={cancelTodo} text="Annuler"/>
         </div>
         </>
     )

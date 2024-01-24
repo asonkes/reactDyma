@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from '../components/Button';
 
 export default function AddTodo({ addTodo }) {
 
@@ -38,9 +39,7 @@ export default function AddTodo({ addTodo }) {
             className="mt-50 mb-20 p-20" 
             placeholder="Veuillez ajouter des Todos" />
 
-            <button 
-            onClick={handleClick} 
-            className="btn btn-primary m-20">Ajouter</button>
+            <Button onClick={handleClick} text="Ajouter"/>
         </div>
         </>
     )

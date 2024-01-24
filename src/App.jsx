@@ -1,9 +1,11 @@
 import { useState } from "react";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
+import ThemeContext from './context/Theme';
 
 export default function App() {
   const [todoList, setTodoList] = useState([]);
+  const [theme, setTheme] = useState('primary');
 
   function addTodo(content) {
     const todo = {
@@ -65,12 +67,24 @@ export default function App() {
       }))
     }
 
+    function handleThemeChange(e) {
+      const theme = e.target.value;
+      setTheme(theme);
+    }
+
 
   return (
     <>
+    <ThemeContext.Provider value={theme}>
     <div className="d-flex flex-column justify-content-center allgn-items-center p-20">
       <div className="card container p-20">
           <h1>Liste des tâches</h1>
+          <div className="d-flex justify-content-end align-items-center">
+            <select className="btn btn-reverse-primary mr-15" onChange={handleThemeChange} value={theme}>
+              <option value="primary">Orange</option>
+              <option value="secondary">Bleu</option>
+            </select>
+          </div>
           <AddTodo addTodo={addTodo}/>
           <TodoList 
           todoList={todoList} 
@@ -81,6 +95,7 @@ export default function App() {
           selectTodo={selectTodo}/>
       </div>
     </div>
+    </ThemeContext.Provider>
     </>
   );
 }

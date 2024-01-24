@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 export default function TodoItem({
     todo, 
     deleteTodo, 
@@ -14,32 +16,25 @@ export default function TodoItem({
             
             <span className="flex-fill p-30">{todo.content} {todo.done && '✅'}</span> 
 
-            <button 
-            onClick={(e) => {
+            <Button onClick={(e) => {
                 e.stopPropagation();
                 validateTodo();
-            }}
-            className="btn btn-primary m-20">
-                Valider
-            </button>
+            }} 
+                    text="Valider"
+            />
 
-            <button 
-            onClick={(e) => {
+            <Button onClick={(e) => {
                 e.stopPropagation();
                 editTodo()
-            }}
-            className="btn btn-primary m-20">
-                Modifier
-            </button>
+            }} 
+                text="Modifier"/>
 
-            <button 
-            onClick={(e) => {
+            <Button onClick={(e) => {
                 e.stopPropagation();
                 deleteTodo()
-            }}
-            className="btn btn-reverse-primary m-20">
-                Supprimer
-            </button>
+            }}  
+                    text="Supprimer"
+            />
 
         </li>
         </>
